@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import SocialPill from '../components/SocialPill.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import MailIcon from '../components/icons/Mail.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import BriefcaseIcon from '../components/icons/Briefcase.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<Layout title="Portafolio de Bryan Flores - Desarrollador y Programador Web." description="Contrata a Bryan Flores para desarrollar tu aplicación web.">
+	<main class="flex flex-col items-center gap-32 px-5">
+    <SectionContainer id="sobre-mi">
+      <h1 class="flex flex-row gap-x-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+        Hola, soy Bryan.
+        <a href="https://www.linkedin.com/in/bryanflores-frontend/" target="_blank" rel="noopener" class="flex justify-center items-center">
+          <Badge>Disponible</Badge>
+        </a>
+      </h1>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl opacity-80 max-w-[700px] text-pretty my-6 md:my-8 lg:my-10">
+        <!-- <span>X años de experiencia. </span> -->
+        <span class="text-blue-400/90">Desarrollador web fullstack.</span>
+        <span class="text-green-200/90">México, CDMX.</span>
+        <span class="text-blue-200/90">Especializado en frontend.</span>
+      </h2> 
+      <nav class="flex flex-wrap gap-3 md:gap-4 lg:gap-5 text-sm md:text-base lg:text-xl">
+        <SocialPill href="https://www.linkedin.com/in/bryanflores-frontend/">
+          <LinkedInIcon class="size-4 md:size-5 lg:size-6"/>
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://github.com/Debraye7">
+          <GitHubIcon class="size-4 md:size-5 lg:size-6"/>
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:Bryan_Flores7@outlook.com">
+          <MailIcon class="size-4 md:size-5 lg:size-6"/>
+          Bryan_Flores7@outlook.com
+        </SocialPill>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id="experiencia">
+      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-5">
+        <BriefcaseIcon class="size-6 md:size-7 lg:size-8"/>
+        Experiencia laboral
+      </h2>
+      <Experience/>
+    </SectionContainer>
+    <SectionContainer id="proyectos">
+      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-12">
+        <CodeIcon class="size-6 md:size-7 lg:size-8"/>
+        Proyectos
+      </h2>
+      <div class="flex flex-col gap-24">
+        <Projects/>
+      </div>
+    </SectionContainer>
+  </main>
+</Layout>
