@@ -1,0 +1,21 @@
+---
+import ExperienceItem from "./ExperienceItem.astro";
+
+const EXPERIENCE = [
+  {
+    date:"Mayo 2023 - Actualmente",
+    title:"Ingeniero de sistemas - Valdoinc",
+    description:"Responsable del desarrollo y mantenimiento de aplicaciones web, administración de equipos informáticos y soporte técnico.",
+    link:"#",
+  },
+];
+---
+
+<ol class="relative border-s-2 border-gray-200 ml-2 md:ml-3">                  
+  {EXPERIENCE.map(e => (
+    <li class="ms-5">
+      <ExperienceItem {...e}/>
+    </li>
+  ))}
+</ol>
+
