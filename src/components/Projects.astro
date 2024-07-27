@@ -1,0 +1,90 @@
+---
+import CodeCircle from "./icons/CodeCircle.astro";
+
+const TAGS = {
+  HTML:{
+    name:"HTML",
+    class:"border-[#ef652a]/70 bg-[#ef652a]/70 text-white",
+    icon:"public/skills/HTML.svg",
+  },
+  CSS:{
+    name:"CSS",
+    class:"border-[#30a9dc]/70 bg-[#30a9dc]/70 text-white",
+    icon:"public/skills/CSS.svg",
+  },
+  JavaScript:{
+    name:"JavaScript",
+    class:"border-[#f0db4f]/70 bg-[#f0db4f]/70 text-white",
+    icon:"public/skills/JavaScript.svg",
+  },
+  TypeScript:{
+    name:"TypeScript",
+    class:"border-[#3178c6]/70 bg-[#3178c6]/70 text-white",
+    icon:"public/skills/TypeScript.svg",
+  },
+  React:{
+    name:"React",
+    class:"border-[#00d8ff]/70 bg-[#00d8ff]/70 text-white",
+    icon:"public/skills/React.svg",
+  },
+  NodeJS:{
+    name:"NodeJS",
+    class:"border-[#66b948]/70 bg-[#66b948]/70 text-white",
+    icon:"public/skills/NodeJS.svg",
+  },
+  MongoDB:{
+    name:"MongoDB",
+    class:"border-[#01ec64]/70 bg-[#01ec64]/70 text-white",
+    icon:"public/skills/MongoDB.svg",
+  },
+};
+const PROJECTS = [
+  {
+    title:"Ecommerce",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    link:"https://uva-asistente.web.app/",
+    github:"#",
+    image:"/public/projects/Calendarios.webp",
+    tags:[TAGS.HTML, TAGS.CSS, TAGS.TypeScript, TAGS.React, TAGS.NodeJS, TAGS.MongoDB],
+  },
+  {
+    title:" ToDo",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    link:"https://uva-asistente.web.app/",
+    github:"#",
+    image:"/public/projects/Calendarios.webp",
+    tags:[TAGS.HTML, TAGS.CSS, TAGS.TypeScript, TAGS.React, TAGS.MongoDB, TAGS.NodeJS],
+  },
+  {
+    title:"ERP",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    link:"https://uva-asistente.web.app/",
+    github:"#",
+    image:"/public/projects/Calendarios.webp",
+    tags:[TAGS.HTML, TAGS.CSS, TAGS.JavaScript, TAGS.React, TAGS.MongoDB, TAGS.NodeJS],
+  }
+];
+---
+
+{
+  PROJECTS.map(({ title, description, tags, link, image }) => (
+    <article class="flex flex-col gap-4">
+      <div class="flex items-center gap-2">
+        <CodeCircle class="text-green-200"/>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-blue-400/90">{title}</h3>
+      </div>
+      <p class="text-base md:text-lg lg:text-xl text-pretty opacity-80">{description}</p>
+      <ul class="flex flex-wrap gap-2">
+        {tags.map(tag => (
+          <li class={`flex items-center gap-2 w-fit h-10 md:h-11 lg:h-12 px-5 md:px-6 lg:px-7 border-2 rounded-lg ${tag.class} bg-gradient-to-r from-transparent to-neutral-800 shadow-lg shadow-stone-950`}>
+            <img class="size-5 md:size-6 lg:size-7" src={tag.icon} alt={`Logo de ${tag.icon}`}/>                     
+            {tag.name}
+          </li>
+        ))}
+      </ul>
+      <a class="max-full max-h-[250px] lg:max-h-[300px] rounded-3xl shadow-xl shadow-stone-950 opacity-30 hover:opacity-60 transition overflow-hidden" href={link} target="_blank">
+        <img class="w-full" src={image} alt={`Captura de pantalla del proyecto ${title}`}/>
+      </a>
+    </article>
+  ))
+}
