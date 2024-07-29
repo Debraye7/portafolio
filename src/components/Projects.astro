@@ -1,5 +1,7 @@
 ---
-import CodeCircle from "./icons/CodeCircle.astro";
+import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
+import LinkPill from "./LinkPill.astro";
 
 const TAGS = {
   HTML:{
@@ -24,7 +26,7 @@ const TAGS = {
   },
   React:{
     name:"React",
-    class:"border-[#00d8ff]/70 bg-[#00d8ff]/70 text-white",
+    class:"border-[#00d8ff]/50 bg-[#00d8ff]/50 text-white",
     icon:"public/skills/React.svg",
   },
   NodeJS:{
@@ -41,7 +43,8 @@ const TAGS = {
 const PROJECTS = [
   {
     title:"Ecommerce",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    subtitle:"Lorem, ipsum dolor sit amet consectetur",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo.",
     link:"https://uva-asistente.web.app/",
     github:"#",
     image:"/public/projects/Calendarios.webp",
@@ -49,7 +52,8 @@ const PROJECTS = [
   },
   {
     title:" ToDo",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    subtitle:"Lorem, ipsum dolor sit amet consectetur",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo.",
     link:"https://uva-asistente.web.app/",
     github:"#",
     image:"/public/projects/Calendarios.webp",
@@ -57,7 +61,8 @@ const PROJECTS = [
   },
   {
     title:"ERP",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo placeat, ducimus architecto iure est! Dolore eum vel nostrum animi.",
+    subtitle:"Lorem, ipsum dolor sit amet consectetur",
+    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati doloribus adipisci possimus esse maxime, quaerat, in expedita porro explicabo.",
     link:"https://uva-asistente.web.app/",
     github:"#",
     image:"/public/projects/Calendarios.webp",
@@ -67,24 +72,36 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ title, description, tags, link, image }) => (
-    <article class="flex flex-col gap-4">
-      <div class="flex items-center gap-2">
-        <CodeCircle class="text-green-200"/>
-        <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold text-blue-400/90">{title}</h3>
-      </div>
-      <p class="text-base md:text-lg lg:text-xl text-pretty opacity-80">{description}</p>
-      <ul class="flex flex-wrap gap-2">
+  PROJECTS.map(({ title, subtitle, description, tags, link, image }) => (
+    <article class="flex items-center flex-wrap md:flex-nowrap gap-5">
+      <div class="flex flex-col gap-5 w-full md:w-1/2">
+        <h3 class="text-lg md:text-xl lg:text-2xl font-semibold text-sky-400 text-pretty">
+          {title}
+          <span class="text-white/90 text-pretty"> - {subtitle}.</span>
+        </h3>
+        <ul class="flex flex-wrap gap-2 opacity-70 hover:opacity-100 transition">
         {tags.map(tag => (
-          <li class={`flex items-center gap-2 w-fit h-10 md:h-11 lg:h-12 px-5 md:px-6 lg:px-7 border-2 rounded-lg ${tag.class} bg-gradient-to-r from-transparent to-neutral-800 shadow-lg shadow-stone-950`}>
-            <img class="size-5 md:size-6 lg:size-7" src={tag.icon} alt={`Logo de ${tag.icon}`}/>                     
-            {tag.name}
+          <li class={`flex items-center gap-2 w-fit h-6 md:h-7 px-2 md:px-3 border-2 rounded-md ${tag.class} bg-gradient-to-r from-transparent to-neutral-800 shadow-lg shadow-stone-950`}>
+            <img class="size-3 md:size-4" src={tag.icon} alt={`Logo de ${tag.icon}`}/>                     
+            <p class="text-xs md:text-sm">{tag.name}</p>
           </li>
         ))}
-      </ul>
-      <a class="max-full max-h-[250px] lg:max-h-[300px] rounded-3xl shadow-xl shadow-stone-950 opacity-30 hover:opacity-60 transition overflow-hidden" href={link} target="_blank">
-        <img class="w-full" src={image} alt={`Captura de pantalla del proyecto ${title}`}/>
-      </a>
+        </ul>
+        <p class="text-sm md:text-base lg:text-lg text-pretty opacity-60">{description}</p>
+      </div>
+      <div class="flex flex-col gap-5 w-full md:w-1/2">
+        <div class="flex gap-4">
+          <LinkPill href={link} class="h-8 md:h-10 lg:h-12 w-28 md:w-32 lg:w-36 text-sm md:text-base lg:text-lg">
+            <Link class="size-4 md:size-5 lg:size-6"/>
+            Visitar
+          </LinkPill>
+          <LinkPill href={link} class="h-8 md:h-10 lg:h-12 w-28 md:w-32 lg:w-36 text-sm md:text-base lg:text-lg">
+            <GitHub class="size-4 md:size-5 lg:size-6"/>
+            Código
+          </LinkPill>
+        </div>
+        <img class="w-full max-h-[350px] rounded-3xl shadow-xl shadow-stone-950 overflow-hidden opacity-50 hover:opacity-80 hover:scale-105 transition" src={image} alt={`Captura de pantalla del proyecto ${title}`}/>
+      </div>
     </article>
   ))
 }
