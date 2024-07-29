@@ -3,19 +3,20 @@ import ExperienceItem from "./ExperienceItem.astro";
 
 const EXPERIENCE = [
   {
-    date:"Mayo 2023 - Actualmente",
-    title:"Ingeniero de sistemas - Valdoinc",
+    title:"Ingeniero de sistemas",
+    company:"Valdoinc",
     description:"Responsable del desarrollo y mantenimiento de aplicaciones web, administración de equipos informáticos y soporte técnico.",
-    link:"#",
+    date:"Actualmente",
   },
 ];
 ---
 
-<ol class="relative border-s-2 border-gray-200 ml-2 md:ml-3">                  
-  {EXPERIENCE.map(e => (
-    <li class="ms-5">
-      <ExperienceItem {...e}/>
-    </li>
-  ))}
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
 </ol>
-
