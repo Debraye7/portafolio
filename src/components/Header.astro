@@ -1,17 +1,16 @@
 ---
-const css = "hover:scale-105 md:hover:scale-110 lg:hover:scale-125 hover:text-blue-400/90 transition cursor-pointer";
+const css = "hover:scale-105 md:hover:scale-110 lg:hover:scale-125 hover:text-sky-400/90 transition cursor-pointer";
 ---
 
-<header id="top" class="flex gap-y-7 md:flex-row justify-between items-center py-5 px-6 w-full">
-  <a href="https://www.linkedin.com/in/bryanflores-frontend/" target="_blank" class="flex items-end">
+<header class="flex gap-y-7 md:flex-row justify-between items-center py-5 px-6 w-full fixed bg-gradient-to-r from-[#0A0A0A] to-[#262626] z-50 opacity-100">
+  <a href="https://www.linkedin.com/in/bryanflores-dev/" target="_blank" class="flex items-end">
     <!-- <img class="w-[150px] md:w-[100px] lg:w-[150px]" src="public/BRYAN.png" alt="BRYAN"/> -->
     <img class="w-[25px] md:w-[50px]" src="public/terminal.svg" alt="Logo terminal"/>
   </a>
   <nav class="flex flex-row gap-x-4 md:gap-x-7 lg:gap-x-10 opacity-80 text-xs md:text-sm lg:text-base">
     <a class={css} href="#top">Inicio</a>
-    <a class={css} href="#sobre-mi">Sobre mí</a>
     <a class={css} href="#experiencia">Experiencia</a>
     <a class={css} href="#proyectos">Proyectos</a>
-    <a class={css} href="#contacto">Contacto</a>
+    <a class={css} href="#sobre-mi">Sobre mí</a>
   </nav>
 </header>
