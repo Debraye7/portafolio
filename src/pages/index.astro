@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
-import SocialPill from '../components/SocialPill.astro';
+import LinkPill from '../components/LinkPill.astro';
 import LinkedInIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import MailIcon from '../components/icons/Mail.astro';
@@ -9,54 +9,68 @@ import Experience from '../components/Experience.astro';
 import SectionContainer from '../components/SectionContainer.astro';
 import BriefcaseIcon from '../components/icons/Briefcase.astro';
 import CodeIcon from '../components/icons/Code.astro';
+import ActiveIcon from '../components/icons/Active.astro';
 import Projects from '../components/Projects.astro';
+import UserIcon from '../components/icons/User.astro';
+import About from '../components/About.astro';
 ---
 
 <Layout title="Portafolio de Bryan Flores - Desarrollador y Programador Web." description="Contrata a Bryan Flores para desarrollar tu aplicación web.">
-	<main class="flex flex-col items-center gap-32 px-5">
-    <SectionContainer id="sobre-mi">
-      <h1 class="flex flex-row gap-x-4 text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-        Hola, soy Bryan.
-        <a href="https://www.linkedin.com/in/bryanflores-frontend/" target="_blank" rel="noopener" class="flex justify-center items-center">
-          <Badge>Disponible</Badge>
-        </a>
-      </h1>
-      <h2 class="text-2xl md:text-3xl lg:text-4xl opacity-80 max-w-[700px] text-pretty my-6 md:my-8 lg:my-10">
+	<main class="flex flex-col items-center px-10">
+    <SectionContainer id="top">
+      <div class="flex items-center gap-4">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold">
+          Hola, soy Bryan.
+        </h2>
+        <div class="flex justify-center items-center">
+          <Badge href="https://www.linkedin.com/in/bryanflores-dev" class="text-sky-300 text-xs md:text-sm lg:text-base h-6 md:h-7 lg:h-8">
+            <ActiveIcon class="size-2 md:size-3"/>
+            Disponible
+          </Badge>
+        </div>
+      </div>
+      <h1 class="text-2xl md:text-3xl lg:text-4xl opacity-80 max-w-[700px] text-pretty my-6 md:my-8 lg:my-10">
         <!-- <span>X años de experiencia. </span> -->
-        <span class="text-blue-400/90">Desarrollador web fullstack.</span>
-        <span class="text-green-200/90">México, CDMX.</span>
-        <span class="text-blue-200/90">Especializado en frontend.</span>
-      </h2> 
+        <span class="text-sky-400">Ingeniero en sistemas computacionales </span>
+        de <span class="text-emerald-200">CDMX</span>, <span class="text-red-200">México</span>. Especializado en desarrollo web.
+      </h1> 
       <nav class="flex flex-wrap gap-3 md:gap-4 lg:gap-5 text-sm md:text-base lg:text-xl">
-        <SocialPill href="https://www.linkedin.com/in/bryanflores-frontend/">
+        <LinkPill href="https://www.linkedin.com/in/bryanflores-dev/">
           <LinkedInIcon class="size-4 md:size-5 lg:size-6"/>
           LinkedIn
-        </SocialPill>
-        <SocialPill href="https://github.com/Debraye7">
+        </LinkPill>
+        <LinkPill href="https://github.com/Debraye7">
           <GitHubIcon class="size-4 md:size-5 lg:size-6"/>
           GitHub
-        </SocialPill>
-        <SocialPill href="mailto:Bryan_Flores7@outlook.com">
+        </LinkPill>
+        <LinkPill href="mailto:Bryan_Flores7@outlook.com">
           <MailIcon class="size-4 md:size-5 lg:size-6"/>
           Bryan_Flores7@outlook.com
-        </SocialPill>
+        </LinkPill>
       </nav>
     </SectionContainer>
     <SectionContainer id="experiencia">
-      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-5">
+      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-5 text-white">
         <BriefcaseIcon class="size-6 md:size-7 lg:size-8"/>
         Experiencia laboral
       </h2>
       <Experience/>
     </SectionContainer>
     <SectionContainer id="proyectos">
-      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-12">
+      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-10 md:mb-12 text-white">
         <CodeIcon class="size-6 md:size-7 lg:size-8"/>
         Proyectos
       </h2>
-      <div class="flex flex-col gap-24">
+      <div class="flex flex-col gap-20 md:gap-32">
         <Projects/>
       </div>
+    </SectionContainer>
+    <SectionContainer id="sobre-mi" class="pb-28">
+      <h2 class="flex items-center gap-x-3 text-2xl md:text-3xl lg:text-4xl font-semibold mb-10 md:mb-20 text-white">
+        <UserIcon class="size-6 md:size-7 lg:size-8"/>
+        Sobre mí
+      </h2>
+      <About/>
     </SectionContainer>
   </main>
 </Layout>
