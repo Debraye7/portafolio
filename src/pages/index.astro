@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Badge from '../components/Badge.astro';
 import LinkPill from '../components/LinkPill.astro';
+import CVIcon from '../components/icons/CV.astro';
 import LinkedInIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import MailIcon from '../components/icons/Mail.astro';
@@ -35,6 +36,10 @@ import About from '../components/About.astro';
         de <span class="text-emerald-200">CDMX</span>, <span class="text-red-200">México</span>. Especializado en desarrollo web.
       </h1> 
       <nav class="flex flex-wrap gap-3 md:gap-4 lg:gap-5 text-sm md:text-base lg:text-xl">
+        <LinkPill href="https://bryan-flores-cv.netlify.app">
+          <CVIcon class="size-4 md:size-5 lg:size-6"/>
+          curriculum
+        </LinkPill>
         <LinkPill href="https://www.linkedin.com/in/bryanflores-dev/">
           <LinkedInIcon class="size-4 md:size-5 lg:size-6"/>
           LinkedIn
