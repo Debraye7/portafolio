@@ -1,0 +1,45 @@
+---
+const {
+  title = "Bryan Flores | Desarrollador Frontend Jr.",
+  description = "Desarrollador Frontend Junior enfocado en UI, UX y buenas prácticas, con experiencia en React, TypeScript y Tailwind CSS."
+} = Astro.props;
+import Header from "../components/ui/Header.astro";
+import "../styles/global.css";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-background-light-primary dark:bg-background-dark-primary text-text-light-primary dark:text-text-dark-primary">
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+

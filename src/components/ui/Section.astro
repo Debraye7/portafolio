@@ -1,0 +1,13 @@
+---
+const { id, spacing = "space-y-6" } = Astro.props;
+---
+
+<section
+  id={id}
+  class="py-16 md:py-24"
+>
+  <div class={`container ${spacing}`}>
+    <slot />
+  </div>
+</section>
+

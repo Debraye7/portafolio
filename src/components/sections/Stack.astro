@@ -1,0 +1,57 @@
+---
+import Section from "../ui/Section.astro";
+---
+
+<Section id="stack">
+  <h2 class="text-3xl font-bold text-text-light-title dark:text-text-dark-title">
+    Stack tecnológico
+  </h2>
+
+  <p class="max-w-xl text-text-light-primary dark:text-text-dark-primary">
+    Trabajo principalmente con un stack frontend moderno, enfocado en construir
+    interfaces mantenibles, reutilizables y bien estructuradas.
+  </p>
+
+  <div class="flex flex-col md:flex-row gap-10 pt-6">
+    <!-- Base -->
+    <div>
+      <h3 class="mb-3 font-semibold text-lg text-text-light-title dark:text-text-dark-title">
+        Básicos
+      </h3>
+
+      <ul class="flex flex-wrap gap-3">
+        <li class="badge">HTML</li>
+        <li class="badge">CSS</li>
+        <li class="badge">JavaScript</li>
+      </ul>
+    </div>
+
+    <!-- Principales -->
+    <div>
+      <h3 class="mb-3 font-semibold text-lg text-text-light-title dark:text-text-dark-title">
+        Principales
+      </h3>
+
+      <ul class="flex flex-wrap gap-3">
+        <li class="badge-active">Tailwind CSS</li>
+        <li class="badge-active">TypeScript</li>
+        <li class="badge-active">React</li>
+        <li class="badge-active">Next.js</li>
+      </ul>
+    </div>
+
+    <!-- Otros -->
+    <div>
+      <h3 class="mb-3 font-semibold text-lg text-text-light-title dark:text-text-dark-title">
+        Otros
+      </h3>
+
+      <ul class="flex flex-wrap gap-3">
+        <li class="badge">Astro</li>
+        <li class="badge">Node.js</li>
+        <li class="badge">MongoDB</li>
+        <li class="badge">MySQL</li>
+      </ul>
+    </div>
+  </div>
+</Section>

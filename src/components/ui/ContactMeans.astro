@@ -1,0 +1,12 @@
+---
+import { contactMeans } from "../../data/contact";
+const { style } = Astro.props;
+---
+
+<ul class={style}>
+  {contactMeans.map((mean) => (
+    <li class="badge">
+      {mean.value}
+    </li>
+  ))}
+</ul>

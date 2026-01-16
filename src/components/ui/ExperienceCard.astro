@@ -1,0 +1,42 @@
+---
+const {
+  role,
+  company,
+  period,
+  description,
+  responsibilities,
+  tech
+} = Astro.props;
+---
+
+<div class="p-6 rounded-lg border border-dividers-light dark:border-dividers-dark bg-background-light-secondary dark:bg-background-dark-secondary space-y-4">
+  <div class="flex flex-wrap items-center justify-between">
+    <div>
+      <h3 class="text-lg font-semibold text-text-light-title dark:text-text-dark-title">
+        {role}
+      </h3>
+      <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">
+        {company}
+      </p>
+    </div>
+    <span class="text-xs text-text-light-secondary dark:text-text-dark-secondary">
+      {period}
+    </span>
+  </div>
+
+  <p class="text-text-light-primary dark:text-text-dark-primary">
+    {description}
+  </p>
+
+  <ul class="list-disc list-inside text-sm space-y-1 text-text-light-secondary dark:text-text-dark-secondary">
+    {responsibilities.map((item:string) => (
+      <li>{item}</li>
+    ))}
+  </ul>
+
+  <ul class="flex flex-wrap gap-1 pt-2">
+    {tech.map((t:string) => (
+      <li class="badge">{t}</li>
+    ))}
+  </ul>
+</div>

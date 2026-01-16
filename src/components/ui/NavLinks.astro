@@ -1,0 +1,9 @@
+---
+import { NAV_LINKS } from "../../data/navigation";
+---
+
+{NAV_LINKS.map(link => (
+  <a href={link.href} class="nav-link">
+    {link.label}
+  </a>
+))}

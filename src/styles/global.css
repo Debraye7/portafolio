@@ -1,0 +1,32 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+@import "./components.css";
+
+:root {
+  --font-display: 'Inter';
+  --font-body: 'Inter';
+  --header-height: 0px;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+}
+
+body.has-sticky-header {
+  padding-top: var(--header-height);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+section {
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.is-sticky {
+  @apply fixed top-0 inset-x-0 z-50;
+  @apply bg-background-light-primary/80 dark:bg-background-dark-primary/80;
+  @apply backdrop-blur;
+  @apply border-b border-dividers-light dark:border-dividers-dark;
+}

@@ -1,0 +1,55 @@
+---
+import { PROJECT_TYPES, projects } from "../../data/projects";
+import ProjectCard from "../ui/ProjectCard.astro";
+import Section from "../ui/Section.astro";
+
+const MAX_ITEMS = 3;
+const filteredProjects = projects
+  .filter(project => project.featured)
+  .slice(0, MAX_ITEMS);
+---
+
+<Section id="projects">
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-6">
+    <h2 class="text-3xl font-bold text-text-light-title dark:text-text-dark-title">
+      Proyectos
+    </h2>
+
+    <a href="/projects" class="link-muted text-sm">
+      Ver todos los proyectos -->
+    </a>
+  </div>
+
+  <p class="max-w-xl mb-6 text-text-light-secondary dark:text-text-dark-secondary">
+    Una selección de proyectos que reflejan mi experiencia práctica,
+    enfoque en frontend y trabajo con requerimientos reales.
+  </p>
+
+  <!-- Filtros -->
+  <div class="flex flex-wrap items-center gap-2 mb-8">
+    {Object.values(PROJECT_TYPES).map(t => (
+      <a
+        href={`/projects?type=${t.value}`}
+        class="badge-filter"
+      >
+        {t.label}
+      </a>
+    ))}
+  </div>
+
+  <!-- Grid -->
+  <div class="grid md:grid-cols-3 gap-8">
+    {filteredProjects.map(project => (
+      <ProjectCard
+        img={project.img}
+        title={project.title}
+        description={project.description}
+        problem={project.problem}
+        tech={project.tech}
+        liveUrl={project.liveUrl}
+        repoUrl={project.repoUrl}
+        type={project.type}
+      />
+    ))}
+  </div>
+</Section>

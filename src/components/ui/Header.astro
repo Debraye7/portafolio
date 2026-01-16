@@ -1,0 +1,53 @@
+---
+// Header component
+import IconTerminal from "../icons/IconTerminal.astro";
+import Nav from "./Nav.astro";
+---
+
+<header
+  id="site-header"
+  class="w-full transition-[background-color,backdrop-filter,transform,opacity] duration-300"
+>
+  <div class="container flex items-center justify-between py-4">
+    <a href="/" class="flex items-center font-semibold text-xl text-text-light-title dark:text-text-dark-title hover:text-accent-primary transition-colors">
+      <IconTerminal class="w-6 h-6"/>
+      Bryan Flores
+    </a>
+
+    <Nav />
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("site-header");
+
+  if (header instanceof HTMLElement) {
+    const OFFSET = 80;
+
+    const setHeaderHeight = () => {
+      const height = header.offsetHeight;
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${height}px`
+      );
+    };
+
+    const onScroll = () => {
+      if (window.scrollY > OFFSET) {
+        header.classList.add("is-sticky");
+        document.body.classList.add("has-sticky-header");
+      } else {
+        header.classList.remove("is-sticky");
+        document.body.classList.remove("has-sticky-header");
+      }
+    };
+
+    // Inicialización
+    setHeaderHeight();
+    onScroll();
+
+    // Observadores
+    window.addEventListener("resize", setHeaderHeight);
+    window.addEventListener("scroll", onScroll);
+  }
+</script>

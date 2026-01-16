@@ -1,0 +1,46 @@
+---
+import ContactMeans from "../ui/ContactMeans.astro";
+import Section from "../ui/Section.astro";
+---
+
+<Section id="contact">
+  <h2 class="text-center text-3xl font-bold text-text-light-title dark:text-text-dark-title">
+    Contacto
+  </h2>
+
+  <p class="text-center max-w-xl mx-auto text-text-light-primary dark:text-text-dark-primary">
+    Si te interesa mi perfil o quieres conocer más sobre mi trabajo,
+    estaré encantado de conversar.
+  </p>
+
+  <div class="flex justify-center">
+    <ContactMeans style="flex flex-wrap items-center justify-center gap-2" />
+  </div>
+
+  <div class="justify-self-center flex flex-wrap items-center justify-center gap-4 pt-4 w-fit">
+    <a
+      href="mailto:tuemail@email.com"
+      class="flex-1 btn-primary"
+    >
+      Enviar email
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/tu-perfil"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-1 btn-secondary"
+    >
+      LinkedIn
+    </a>
+
+    <a
+      href="https://github.com/tu-usuario"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex-1 btn-secondary"
+    >
+      GitHub
+    </a>
+  </div>
+</Section>

@@ -1,0 +1,30 @@
+---
+import ContactMeans from "../ui/ContactMeans.astro";
+import Section from "../ui/Section.astro";
+---
+
+<Section id="hero">
+  <div class="flex flex-col-reverse sm:flex-row sm:items-center gap-2 mb-3">
+    <span class="badge-status">Disponible</span>
+    <ContactMeans style="hidden sm:flex items-center gap-2"/>
+  </div>
+
+  <h1 class="text-4xl sm:text-5xl font-bold text-text-light-title dark:text-text-dark-title">
+    Desarrollador Frontend Jr. enfocado en UI y Experiencia de Usuario
+  </h1>
+
+  <p class="text-lg sm:text-xl max-w-3xl text-text-light-primary dark:text-text-dark-primary">
+    Desarrollo interfaces modernas, eficientes y bien estructuradas,
+    con especial atención al detalle visual, buenas prácticas y
+    colaboración efectiva con equipos de producto en entornos profesionales.
+  </p>
+
+  <div class="flex flex-wrap gap-4 pt-2">
+    <a href="#projects" class="btn-primary">
+      Ver proyectos
+    </a>
+    <!-- <a href="/cv" class="btn-secondary">
+      CV
+    </a> -->
+  </div>
+</Section>

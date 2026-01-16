@@ -1,0 +1,92 @@
+---
+// Navigation component
+import NavLinks from "./NavLinks.astro";
+import MobileMenu from "./Menu.astro";
+import IconMenu from "../icons/IconMenu.astro";
+import IconX from "../icons/IconX.astro";
+---
+
+<nav class="flex items-center gap-4">
+  <div class="hidden sm:flex items-center gap-4">
+    <NavLinks />
+  </div>
+
+  <button
+    id="menu-toggle"
+    class="sm:hidden focus-visible:outline-2 focus-visible:outline-accent-primary hover:text-accent-hover transition-colors cursor-pointer"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="mobile-menu"
+  >
+    <IconMenu class="icon-menu w-6 h-6 transition-colors"/>
+    <IconX class="icon-close w-6 h-6 transition-colors hidden"/>
+  </button>
+  <MobileMenu />
+</nav>
+
+<script>
+import { createFocusTrap } from "../../utils/focusTrap";
+
+  const header = document.getElementById("site-header");
+  const menu = document.getElementById("mobile-menu");
+  const toggleBtn = document.getElementById("menu-toggle");
+
+  if (
+    header instanceof HTMLElement &&
+    menu instanceof HTMLElement &&
+    toggleBtn instanceof HTMLElement
+  ) {
+    const trapFocus = createFocusTrap(header);
+    let isOpen = false;
+
+    const openMenu = () => {
+      isOpen = true;
+
+      menu.classList.remove("hidden");
+      requestAnimationFrame(() => {
+        menu.classList.remove("opacity-0", "translate-y-2");
+      });
+
+      toggleBtn.setAttribute("aria-expanded", "true");
+      toggleBtn.setAttribute("aria-label", "Cerrar menú");
+
+      toggleBtn.querySelector(".icon-menu")?.classList.add("hidden");
+      toggleBtn.querySelector(".icon-close")?.classList.remove("hidden");
+
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", trapFocus);
+    };
+
+    const closeMenu = () => {
+      isOpen = false;
+
+      menu.classList.add("opacity-0", "translate-y-2");
+
+      toggleBtn.setAttribute("aria-expanded", "false");
+      toggleBtn.setAttribute("aria-label", "Abrir menú");
+
+      document.body.style.overflow = "";
+
+      setTimeout(() => {
+        menu.classList.add("hidden");
+        toggleBtn.querySelector(".icon-close")?.classList.add("hidden");
+        toggleBtn.querySelector(".icon-menu")?.classList.remove("hidden");
+      }, 200);
+      document.removeEventListener("keydown", trapFocus);
+    };
+
+    toggleBtn.addEventListener("click", () => {
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+        closeMenu();
+      }
+    });
+  }
+</script>
