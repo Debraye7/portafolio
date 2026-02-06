@@ -50,3 +50,7 @@
 .badge-filter-active {
   @apply bg-accent-soft text-accent-primary border-transparent;
 }
+
+.badge-link {
+  @apply flex items-center justify-center w-8 h-8 border border-dividers-light dark:border-dividers-dark rounded-md;
+}
