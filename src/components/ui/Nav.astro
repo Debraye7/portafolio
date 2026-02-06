@@ -13,13 +13,13 @@ import IconX from "../icons/IconX.astro";
 
   <button
     id="menu-toggle"
-    class="sm:hidden focus-visible:outline-2 focus-visible:outline-accent-primary hover:text-accent-hover transition-colors cursor-pointer"
+    class="grid sm:hidden focus-visible:outline-2 focus-visible:outline-accent-primary hover:text-accent-hover transition-colors cursor-pointer"
     aria-label="Abrir menú"
     aria-expanded="false"
     aria-controls="mobile-menu"
   >
-    <IconMenu class="icon-menu w-6 h-6 transition-colors"/>
-    <IconX class="icon-close w-6 h-6 transition-colors hidden"/>
+    <IconMenu class="icon-menu col-start-1 col-end-1 row-start-1 row-end-1 w-6 h-6 transition-colors"/>
+    <IconX class="icon-close col-start-1 col-end-1 row-start-1 row-end-1 w-6 h-6 transition-colors text-transparent"/>
   </button>
   <MobileMenu />
 </nav>
@@ -49,9 +49,11 @@ import { createFocusTrap } from "../../utils/focusTrap";
 
       toggleBtn.setAttribute("aria-expanded", "true");
       toggleBtn.setAttribute("aria-label", "Cerrar menú");
+      toggleBtn.querySelector(".icon-menu")?.setAttribute("aria-hidden", "true");
+      toggleBtn.querySelector(".icon-close")?.setAttribute("aria-hidden", "false");
 
-      toggleBtn.querySelector(".icon-menu")?.classList.add("hidden");
-      toggleBtn.querySelector(".icon-close")?.classList.remove("hidden");
+      toggleBtn.querySelector(".icon-menu")?.classList.add("text-transparent");
+      toggleBtn.querySelector(".icon-close")?.classList.remove("text-transparent");
 
       document.body.style.overflow = "hidden";
       document.addEventListener("keydown", trapFocus);
@@ -64,13 +66,15 @@ import { createFocusTrap } from "../../utils/focusTrap";
 
       toggleBtn.setAttribute("aria-expanded", "false");
       toggleBtn.setAttribute("aria-label", "Abrir menú");
+      toggleBtn.querySelector(".icon-menu")?.setAttribute("aria-hidden", "false");
+      toggleBtn.querySelector(".icon-close")?.setAttribute("aria-hidden", "true");
 
       document.body.style.overflow = "";
 
       setTimeout(() => {
         menu.classList.add("hidden");
-        toggleBtn.querySelector(".icon-close")?.classList.add("hidden");
-        toggleBtn.querySelector(".icon-menu")?.classList.remove("hidden");
+        toggleBtn.querySelector(".icon-close")?.classList.add("text-transparent");
+        toggleBtn.querySelector(".icon-menu")?.classList.remove("text-transparent");
       }, 200);
       document.removeEventListener("keydown", trapFocus);
     };

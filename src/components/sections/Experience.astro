@@ -4,9 +4,15 @@ import ExperienceTimeline from "../ui/ExperienceTimeline.astro";
 ---
 
 <Section id="experience">
-  <h2 class="text-3xl font-bold mb-6 text-text-light-title dark:text-text-dark-title">
-    Experiencia profesional
-  </h2>
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 mb-6">
+    <h2 class="text-3xl font-bold text-text-light-title dark:text-text-dark-title">
+      Experiencia profesional
+    </h2>
+
+    <a href="/cv" class="link-muted text-sm">
+      Ver CV completo -->
+    </a>
+  </div>
 
   <ExperienceTimeline />
 </Section>

@@ -1,29 +1,88 @@
 ---
 import Section from "../components/ui/Section.astro";
-import { contactMeans } from "../data/contact";
+import { contactMeans, email, github, linkedin } from "../data/contact";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ExperienceItem from "../components/ui/ExperienceItem.astro";
 import IconMapPin from "../components/icons/IconMapPin.astro";
+import IconLinkedin from "../components/icons/IconLinkedin.astro";
+import IconGithub from "../components/icons/IconGithub.astro";
+import { experiences } from "../data/experience";
 ---
 
-<BaseLayout title="Currículum Vitae - Bryan Flores" description="Descarga el currículum vitae de Bryan Flores, desarrollador web. Conoce su experiencia laboral, habilidades y formación académica." >
-  <Section id="cv" spacing="space-y-8">
-    <div class="flex flex-col gap-1">
-      <h1 class="font-bold text-2xl text-text-light-title dark:text-text-dark-title">Bryan Flores</h1>
-      <p class="font-semibold text-base text-text-light-primary dark:text-text-dark-primary">Desarrollador Frontend Jr. enfocado en UI y Experiencia de Usuario</p>
-      <div class="flex gap-2">
-        <p class="flex items-center font-semibold text-xs text-text-light-secondary dark:text-text-dark-secondary">
-          <IconMapPin class="inline w-3 h-3"/>
-          CDMX, México
-        </p>
-        {contactMeans.map((mean) => (
-          <a href={mean.href} class="font-semibold text-xs">
-            {mean.value}
-          </a>
-        ))}
-      </div>
-      <ul class="flex gap-1">
+<BaseLayout
+  title="Bryan Flores | CV"
+  description="Currículum profesional de Bryan Flores, Desarrollador Frontend Junior con experiencia en React, TypeScript y UI."
+>
+  <main>
+    <article class="max-w-5xl mx-auto px-6">
 
-      </ul>
-    </div>
-  </Section>
+      <!-- Header del CV -->
+      <header class="pt-24 pb-12 border-b border-dividers-light dark:border-dividers-dark">
+        <h1 class="font-display text-4xl font-bold text-text-light-title dark:text-text-dark-title">
+          Bryan Flores
+        </h1>
+
+        <p class="mt-2 text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary">
+          Desarrollador Frontend Junior
+        </p>
+
+        <!-- Summary profesional -->
+        <div class="flex flex-col">
+          <p class="mt-6 max-w-3xl leading-relaxed text-text-light-primary dark:text-text-dark-primary">
+            Desarrollador Frontend Junior con formación en Ingeniería en Sistemas Computacionales y experiencia profesional desarrollando soluciones de software en un entorno real de negocio. He trabajado de forma autónoma en el diseño y construcción de aplicaciones internas, participando en la toma de decisiones técnicas, priorización de requerimientos y mejora continua de interfaces.
+          </p>
+          <p class="mt-6 max-w-3xl leading-relaxed text-text-light-primary dark:text-text-dark-primary">
+            Me especializo en el desarrollo de interfaces claras, mantenibles y bien estructuradas, con un enfoque constante en UI, UX y buenas prácticas de frontend. Busco integrarme a un equipo profesional donde pueda seguir fortaleciendo mis habilidades técnicas y aportar valor desde una mentalidad orientada a producto y calidad.
+          </p>
+        </div>
+
+        <!-- Contacto -->
+        <div class="mt-6 flex flex-wrap gap-4 text-sm font-medium">
+          <a href={email.href} class="link">
+            {email.label}
+          </a>
+          <a
+            href={linkedin.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+          >
+            {linkedin.label}
+          </a>
+          <a
+            href={github.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link"
+          >
+            {github.label}
+          </a>
+        </div>
+      </header>
+
+      <!-- Experiencia profesional -->
+      <section id="experience" class="py-16">
+        <h2 class="font-display text-3xl font-bold mb-10">
+          Experiencia profesional
+        </h2>
+
+        <div class="space-y-12">
+          {experiences.map((item) => (
+            <ExperienceItem
+              role={item.role}
+              company={item.company}
+              period={item.period}
+              description={item.highlights}
+            />
+          ))}
+        </div>
+      </section>
+
+      <!-- Las siguientes secciones irán aquí -->
+      <!-- Experiencia -->
+      <!-- Formación -->
+      <!-- Habilidades -->
+
+    </article>
+  </main>
 </BaseLayout>

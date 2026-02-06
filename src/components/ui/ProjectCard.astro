@@ -1,16 +1,7 @@
 ---
-import { PROJECT_TYPES, type ProjectType } from "../../data/projects";
+import { PROJECT_TYPES, type Project, type ProjectType } from "../../data/projects";
 
-const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro.props as {
-  img: string;
-  title: string;
-  description: string;
-  problem: string;
-  tech: string[];
-  liveUrl: string;
-  repoUrl: string;
-  type: ProjectType;
-};
+const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro.props as Project;
 ---
 
 <div
@@ -46,7 +37,7 @@ const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro
   </ul>
 
   <div class="mt-auto flex flex-wrap gap-4 pt-2">
-    <a href={liveUrl} class="link">Ver proyecto</a>
-    <a href={repoUrl} class="link-muted">Código</a>
+    {liveUrl && <a href={liveUrl} class="link">Ver proyecto</a>}
+    {repoUrl && <a href={repoUrl} class="link-muted">Código</a>}
   </div>
 </div>
