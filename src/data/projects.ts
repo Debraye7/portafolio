@@ -28,47 +28,47 @@ export interface Project {
   description: string;
   problem: string;
   tech: string[];
-  liveUrl: string;
-  repoUrl: string;
+  liveUrl?: string;
+  repoUrl?: string;
   type: ProjectType;
   freelance?: boolean;
 };
 
 export const projects: Project[] = [
   {
+    featured: false,
+    img: "/projects/Portafolio.webp",
+    title: "Portafolio Personal",
+    description: "Portafolio personal con proyectos y habilidades técnicas.",
+    problem: "Desarrollo de un portafolio personal que refleje mi experiencia, habilidades y proyectos de manera clara y atractiva, utilizando tecnologías modernas y buenas prácticas de desarrollo web.",
+    tech: ["Astro", "TypeScript", "Tailwind CSS"],
+    liveUrl: "https://bryan-flores-dev.netlify.app",
+    repoUrl: "https://github.com/Debraye7/portafolio",
+    type: "personal",
+  },
+  {
     featured: true,
     img: "/projects/matb.webp",
     title: "MATB",
     description: "E-commerce full-stack con panel administrativo.",
     problem: "Desarrollo de un flujo completo de e-commerce, integrando frontend, backend y base de datos, con diferenciación de roles y administración de pedidos, de acuerdo a las necesidades del cliente.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
     liveUrl: "https://matb-shop.vercel.app",
     repoUrl: "https://github.com/Debraye7/MATB",
     type: "real",
     freelance: true,
   },
-  // {
-  //   featured: true,
-  //   img: "/projects/default.webp",
-  //   title: "Dashboard de Productos",
-  //   description: "Interfaz para visualización y gestión de productos.",
-  //   problem: "Crear una UI clara y reutilizable para un panel administrativo.",
-  //   tech: ["React", "TypeScript", "Tailwind CSS"],
-  //   liveUrl: "https://...",
-  //   repoUrl: "https://github.com/...",
-  //   type: "demo",
-  // },
-  // {
-  //   featured: true,
-  //   img: "/projects/default.webp",
-  //   title: "Buscador de Películas",
-  //   description: "Aplicación para buscar y filtrar películas desde una API.",
-  //   problem: "Manejo de estado, carga de datos y errores de red.",
-  //   tech: ["React", "TypeScript"],
-  //   liveUrl: "https://...",
-  //   repoUrl: "https://github.com/...",
-  //   type: "demo",
-  // },
+  {
+    featured: true,
+    img: "/projects/FleetTracker.webp",
+    title: "FleetTracker",
+    description: "Aplicación frontend para la gestión básica de una flota vehicular.",
+    problem: "Este proyecto fue desarrollado como parte de un reto técnico, priorizando claridad arquitectónica, buenas prácticas y mantenibilidad del código.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Axios", "React Router", "json-server"],
+    // liveUrl: "https://...",
+    repoUrl: "https://github.com/Debraye7/Reto_Tecnico_Frontend_FleetTracker",
+    type: "demo",
+  },
   // {
   //   img: "/projects/default.webp",
   //   title: "Blog Técnico",
