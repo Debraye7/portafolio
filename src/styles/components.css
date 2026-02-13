@@ -14,6 +14,10 @@
   @apply text-xl sm:text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-accent-primary transition-colors;
 }
 
+.link {
+  @apply font-medium text-accent-primary hover:underline underline-offset-4;
+}
+
 .link-primary {
   @apply font-medium text-accent-primary hover:text-accent-hover transition-colors;
 }
