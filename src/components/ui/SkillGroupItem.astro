@@ -1,0 +1,26 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  items: string[];
+}
+
+const { title, description, items } = Astro.props;
+---
+
+<article class="space-y-4 max-w-full overflow-hidden">
+  <div>
+    <h3 class="text-xl font-semibold text-text-light-title dark:text-text-dark-title">
+      {title}
+    </h3>
+    <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">{description}</p>
+  </div>
+
+  <ul class="flex flex-wrap gap-2 pt-1 overflow-hidden">
+    {items.map(skill => (
+      <li class="badge">
+        {skill}
+      </li>
+    ))}
+  </ul>
+</article>

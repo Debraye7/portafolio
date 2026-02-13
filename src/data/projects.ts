@@ -1,21 +1,26 @@
 export const PROJECT_TYPES = {
+  todos: {
+    value: "todos",
+    label: "Todos",
+    badgeClass: "badge badge-basic",
+  },
   real: {
     // experiencia profesional
     value: "real",
     label: "Proyecto real",
-    badgeClass: "bg-accent-soft text-accent-primary",
+    badgeClass: "badge badge-active",
   },
   demo: {
     // proyectos propios
     value: "demo",
     label: "Demo técnica",
-    badgeClass: "bg-background-light-primary text-text-light-secondary",
+    badgeClass: "badge badge-basic",
   },
   personal: {
     // ejercicios y pruebas
     value: "personal",
     label: "Proyecto personal",
-    badgeClass: "bg-background-light-primary text-text-light-secondary",
+    badgeClass: "badge badge-basic",
   },
 } as const;
 
@@ -69,16 +74,6 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Debraye7/Reto_Tecnico_Frontend_FleetTracker",
     type: "demo",
   },
-  // {
-  //   img: "/projects/default.webp",
-  //   title: "Blog Técnico",
-  //   description: "Sitio con páginas dinámicas y renderizado optimizado.",
-  //   problem: "Implementar routing y renderizado eficiente.",
-  //   tech: ["Next.js", "TypeScript"],
-  //   liveUrl: "https://...",
-  //   repoUrl: "https://github.com/...",
-  //   type: "personal",
-  // },
 ];
 
 //! real

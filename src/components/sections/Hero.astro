@@ -1,29 +1,38 @@
 ---
-import ContactMeans from "../ui/ContactMeans.astro";
+import { email, phoneNumber } from "../../data/contact";
+import { profile } from "../../data/cv";
 import Section from "../ui/Section.astro";
 ---
 
 <Section id="hero">
   <div class="flex flex-col-reverse sm:flex-row sm:items-center gap-2 mb-3">
-    <span class="badge-status">Disponible</span>
-    <ContactMeans style="hidden sm:flex items-center gap-2"/>
+    <span class="badge badge-status badge-active">Disponible</span>
+    <ul class="hidden sm:flex flex-wrap items-center justify-center gap-2">
+      <li class="badge">
+        {profile.location}
+      </li>
+      <li class="badge">
+        {email.label}
+      </li>
+      <li class="badge">
+        {phoneNumber.label}
+      </li>
+    </ul>
   </div>
 
   <h1 class="text-4xl sm:text-5xl font-bold text-text-light-title dark:text-text-dark-title">
-    Desarrollador Frontend Jr. enfocado en UI y Experiencia de Usuario
+    Desarrollador Frontend enfocado en arquitectura de interfaces y experiencia de usuario
   </h1>
 
   <p class="text-lg sm:text-xl max-w-3xl text-text-light-primary dark:text-text-dark-primary">
-    Desarrollo interfaces modernas, eficientes y bien estructuradas,
-    con especial atención al detalle visual, buenas prácticas y
-    colaboración efectiva con equipos de producto en entornos profesionales.
+    Desarrollo aplicaciones frontend priorizando mantenibilidad, arquitectura basada en componentes y alineación con objetivos de negocio.
   </p>
 
   <div class="flex flex-wrap gap-4 pt-2">
-    <a href="#projects" class="btn-primary">
+    <a href="#projects" class="flex-1 sm:flex-none btn-primary">
       Ver proyectos
     </a>
-    <a href="/cv" class="btn-secondary">
+    <a href="/cv" class="flex-1 sm:flex-none btn-secondary">
       CV
     </a>
   </div>

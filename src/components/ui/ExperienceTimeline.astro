@@ -1,27 +1,29 @@
 ---
 import ExperienceCard from "../ui/ExperienceCard.astro";
-import { experiences } from "../../data/experience";
+import { type Experience } from "../../data/experience";
+interface Props {
+  items: Experience[];
+}
 
-const featuredExperiences = experiences.slice(0, 3);
+const { items } = Astro.props;
 ---
 
-<div class="relative space-y-10">
+<ol class="relative space-y-10">
   <!-- Línea vertical -->
-  <span class="absolute left-3 top-0 h-full w-px bg-dividers-light dark:bg-dividers-dark"/>
+  <span class="absolute left-3 top-0 h-full w-px rounded-full bg-dividers-light dark:bg-dividers-dark"/>
 
-  {featuredExperiences.map(exp => (
-    <div class="relative pl-10">
+  {items.map(exp => (
+    <li class="relative pl-10">
       {/* Punto del timeline */}
-      <span class="absolute left-1.5 top-8 w-3 h-3 rounded-full bg-accent-primary"/>
-
+      <span class={`absolute left-1.5 top-8 w-3 h-3 rounded-full ${exp.current ? "bg-accent-primary" : "bg-dividers-light dark:bg-dividers-dark"}`}/>
       <ExperienceCard
         role={exp.role}
         company={exp.company}
         period={exp.period}
-        description={exp.card.description}
-        responsibilities={exp.card.responsibilities}
+        description={exp.description}
+        responsibilities={exp.responsibilities}
         tech={exp.tech}
       />
-    </div>
+    </li>
   ))}
-</div>
+</ol>

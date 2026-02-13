@@ -15,10 +15,10 @@ const validTypes = Object.values(PROJECT_TYPES).map(t => t.value);
 
 const activeType = validTypes.includes(typeParam as ProjectType)
   ? typeParam
-  : "all";
+  : "todos";
 
 const filteredProjects =
-  activeType === "all"
+  activeType === "todos"
     ? projects
     : projects.filter(p => p.type === activeType);
 ---
@@ -33,7 +33,7 @@ const filteredProjects =
     </h1>
 
     <p class="max-w-xl mb-8 text-text-light-secondary dark:text-text-dark-secondary">
-      Una selección completa de proyectos que reflejan mi experiencia,
+      Selección completa de proyectos que reflejan mi experiencia,
       desde soluciones reales hasta demos técnicas y proyectos personales.
     </p>
 
@@ -41,7 +41,7 @@ const filteredProjects =
       {Object.values(PROJECT_TYPES).map(t => (
         <a
           href={`/projects?type=${t.value}`}
-          class={`badge-filter ${activeType === t.value ? "badge-filter-active" : ""}`}
+          class={`badge badge-filter ${activeType === t.value ? "badge-filter-active" : ""}`}
         >
           {t.label}
         </a>

@@ -11,11 +11,7 @@
 }
 
 .nav-link {
-  @apply text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-accent-primary transition-colors;
-}
-
-.link {
-  @apply font-medium text-accent-primary hover:underline underline-offset-4;
+  @apply text-xl sm:text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary hover:text-accent-primary transition-colors;
 }
 
 .link-primary {
@@ -27,15 +23,15 @@
 }
 
 .badge {
-  @apply w-fit px-3 py-1 text-nowrap text-xs font-medium rounded-full bg-background-light-primary dark:bg-background-dark-primary border border-dividers-light dark:border-dividers-dark text-text-light-secondary dark:text-text-dark-secondary;
+  @apply w-fit px-3 py-1 text-nowrap overflow-hidden text-ellipsis text-xs font-medium rounded-full border border-dividers-light dark:border-dividers-dark;
+}
+
+.badge-basic {
+  @apply bg-background-light-primary dark:bg-background-dark-primary text-text-light-secondary dark:text-text-dark-secondary;
 }
 
 .badge-active {
-  @apply w-fit px-3 py-1 text-nowrap text-xs font-medium rounded-full bg-accent-soft text-accent-primary;
-}
-
-.badge-status {
-  @apply w-fit inline-flex items-center gap-2 px-3 py-1 text-nowrap text-xs font-medium rounded-full bg-accent-soft text-accent-primary;
+  @apply inline-flex items-center gap-2 bg-accent-soft text-accent-primary;
 }
 
 .badge-status::before {
@@ -44,13 +40,9 @@
 }
 
 .badge-filter {
-  @apply w-fit px-3 py-1 text-nowrap text-sm font-medium rounded-full cursor-pointer bg-background-light-primary border border-dividers-light text-text-light-secondary hover:text-accent-primary;
+  @apply cursor-pointer bg-background-light-primary text-text-light-secondary hover:text-accent-primary;
 }
 
 .badge-filter-active {
-  @apply bg-accent-soft text-accent-primary border-transparent;
-}
-
-.badge-link {
-  @apply flex items-center justify-center w-8 h-8 border border-dividers-light dark:border-dividers-dark rounded-md;
+  @apply bg-accent-soft text-accent-primary;
 }

@@ -1,11 +1,12 @@
 ---
-import Section from "../components/ui/Section.astro";
-import { contactMeans, email, github, linkedin } from "../data/contact";
+import { email, github, linkedin } from "../data/contact";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ExperienceItem from "../components/ui/ExperienceItem.astro";
-import IconMapPin from "../components/icons/IconMapPin.astro";
-import IconLinkedin from "../components/icons/IconLinkedin.astro";
-import IconGithub from "../components/icons/IconGithub.astro";
+import EducationCard from "../components/ui/EducationCard.astro";
+import SkillGroupItem from "../components/ui/SkillGroupItem.astro";
+import { profile } from "../data/cv";
+import { education } from "../data/cv"
+import { skills } from "../data/skills"
+import ExperienceTimeline from "../components/ui/ExperienceTimeline.astro";
 import { experiences } from "../data/experience";
 ---
 
@@ -14,26 +15,29 @@ import { experiences } from "../data/experience";
   description="Currículum profesional de Bryan Flores, Desarrollador Frontend Junior con experiencia en React, TypeScript y UI."
 >
   <main>
-    <article class="max-w-5xl mx-auto px-6">
+    <article aria-labelledby="cv-title" class="max-w-5xl mx-auto px-6">
 
       <!-- Header del CV -->
-      <header class="pt-24 pb-12 border-b border-dividers-light dark:border-dividers-dark">
-        <h1 class="font-display text-4xl font-bold text-text-light-title dark:text-text-dark-title">
-          Bryan Flores
+      <header class="pt-20 pb-16 border-b border-dividers-light dark:border-dividers-dark">
+        <h1 id="cv-title" class="font-display text-4xl font-bold text-text-light-title dark:text-text-dark-title">
+          {profile.name}
         </h1>
 
         <p class="mt-2 text-lg font-medium text-text-light-secondary dark:text-text-dark-secondary">
-          Desarrollador Frontend Junior
+          {profile.job}
+        </p>
+
+        <p class="mt-2 badge">
+          {profile.location}
         </p>
 
         <!-- Summary profesional -->
-        <div class="flex flex-col">
-          <p class="mt-6 max-w-3xl leading-relaxed text-text-light-primary dark:text-text-dark-primary">
-            Desarrollador Frontend Junior con formación en Ingeniería en Sistemas Computacionales y experiencia profesional desarrollando soluciones de software en un entorno real de negocio. He trabajado de forma autónoma en el diseño y construcción de aplicaciones internas, participando en la toma de decisiones técnicas, priorización de requerimientos y mejora continua de interfaces.
-          </p>
-          <p class="mt-6 max-w-3xl leading-relaxed text-text-light-primary dark:text-text-dark-primary">
-            Me especializo en el desarrollo de interfaces claras, mantenibles y bien estructuradas, con un enfoque constante en UI, UX y buenas prácticas de frontend. Busco integrarme a un equipo profesional donde pueda seguir fortaleciendo mis habilidades técnicas y aportar valor desde una mentalidad orientada a producto y calidad.
-          </p>
+        <div>
+          {profile.summary.map(paragraph => (
+            <p class="mt-6 max-w-3xl leading-relaxed text-text-light-primary dark:text-text-dark-primary">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <!-- Contacto -->
@@ -61,27 +65,61 @@ import { experiences } from "../data/experience";
       </header>
 
       <!-- Experiencia profesional -->
-      <section id="experience" class="py-16">
-        <h2 class="font-display text-3xl font-bold mb-10">
-          Experiencia profesional
-        </h2>
+      <section id="experience" class="py-16 border-b border-dividers-light dark:border-dividers-dark">
+        <div class="mb-10">
+          <h2 class="font-display text-3xl font-bold">
+            Experiencia profesional
+          </h2>
+          <p class="max-w-3xl text-sm text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">
+            Experiencia desarrollando soluciones frontend, participando en la construcción, mejora y mantenimiento de aplicaciones.
+          </p>
+        </div>
 
-        <div class="space-y-12">
-          {experiences.map((item) => (
-            <ExperienceItem
-              role={item.role}
-              company={item.company}
+        <ExperienceTimeline items={experiences} />
+      </section>
+
+      <section id="education" class="py-16 border-b border-dividers-light dark:border-dividers-dark">
+        <div class="mb-10">
+          <h2 class="font-display text-3xl font-bold">
+            Formación académica
+          </h2>
+          <p class="max-w-3xl text-sm text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">
+            Formación técnica orientada a ingeniería de software, complementada con especialización en gestión, seguridad y transformación digital.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {education.map(item => (
+            <EducationCard
+              degree={item.degree}
+              institution={item.institution}
               period={item.period}
-              description={item.highlights}
+              type={item.type}
             />
           ))}
         </div>
       </section>
 
-      <!-- Las siguientes secciones irán aquí -->
-      <!-- Experiencia -->
-      <!-- Formación -->
-      <!-- Habilidades -->
+      <section id="skills" class="py-16">
+        <div class="mb-10">
+          <h2 class="font-display text-3xl font-bold">
+            Habilidades técnicas
+          </h2>
+          <p class="max-w-3xl text-sm text-text-light-secondary dark:text-text-dark-secondary leading-relaxed">
+            Conjunto de tecnologías y prácticas aplicadas en el desarrollo de interfaces modernas, priorizando arquitectura limpia, experiencia de usuario y mantenibilidad.
+          </p>
+        </div>
+
+        <div class="grid gap-12 md:grid-cols-2 items-start">
+          {skills.map(group => (
+            <SkillGroupItem
+              title={group.title}
+              description={group.description}
+              items={group.items}
+            />
+          ))}
+        </div>
+      </section>
 
     </article>
   </main>

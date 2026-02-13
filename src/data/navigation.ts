@@ -1,4 +1,3 @@
-// data/navigation.ts
 export const NAV_LINKS = [
   { href: "/#stack", label: "Stack" },
   { href: "/#experience", label: "Experiencia" },

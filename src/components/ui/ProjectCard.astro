@@ -4,19 +4,17 @@ import { PROJECT_TYPES, type Project, type ProjectType } from "../../data/projec
 const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro.props as Project;
 ---
 
-<div
-  class="flex flex-col p-6 rounded-lg space-y-4
-        bg-background-light-secondary dark:bg-background-dark-secondary
-        border border-dividers-light dark:border-dividers-dark"
+<div 
+  class="flex flex-col p-6 rounded-lg space-y-4 bg-background-light-secondary dark:bg-background-dark-secondary border border-dividers-light dark:border-dividers-dark"
 >
-  <img src={img} alt={title} class="rounded-md object-cover" />
-
   <!-- Tipo de proyecto -->
   <span
     class={`w-fit text-xs font-medium px-3 py-1 rounded-full ${PROJECT_TYPES[type].badgeClass}`}
   >
     {PROJECT_TYPES[type].label}
   </span>
+
+  <img src={img} alt={title} class="rounded-md object-cover border border-dividers-light dark:border-dividers-dark" />
 
   <h3 class="font-display text-xl font-semibold text-text-light-title dark:text-text-dark-title">
     {title}
@@ -32,7 +30,7 @@ const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro
 
   <ul class="flex flex-wrap gap-1">
     {tech.map((t: string) => (
-      <li class="badge">{t}</li>
+      <li class="badge badge-basic">{t}</li>
     ))}
   </ul>
 

@@ -5,24 +5,26 @@ const {
   period,
   description,
   responsibilities,
-  tech
+  tech,
+  current
 } = Astro.props;
 ---
 
-<div class="p-6 rounded-lg border border-dividers-light dark:border-dividers-dark bg-background-light-secondary dark:bg-background-dark-secondary space-y-4">
-  <div class="flex flex-wrap items-center justify-between">
-    <div>
-      <h3 class="text-lg font-semibold text-text-light-title dark:text-text-dark-title">
-        {role}
-      </h3>
+<article class="p-6 rounded-lg border border-dividers-light dark:border-dividers-dark bg-background-light-secondary dark:bg-background-dark-secondary space-y-4 overflow-auto">
+  <header class="flex flex-col gap-1.5">
+    <h3 class="text-lg font-semibold text-text-light-title dark:text-text-dark-title">
+      {role}
+    </h3>
+
+    <div class="flex flex-wrap gap-x-4 items-center justify-between">
       <p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">
         {company}
       </p>
+      <span class="text-xs text-text-light-secondary dark:text-text-dark-secondary">
+        {period}
+      </span>
     </div>
-    <span class="text-xs text-text-light-secondary dark:text-text-dark-secondary">
-      {period}
-    </span>
-  </div>
+  </header>
 
   <p class="text-text-light-primary dark:text-text-dark-primary">
     {description}
@@ -36,7 +38,7 @@ const {
 
   <ul class="flex flex-wrap gap-1 pt-2">
     {tech.map((t:string) => (
-      <li class="badge">{t}</li>
+      <li class="badge badge-basic">{t}</li>
     ))}
   </ul>
-</div>
+</article>

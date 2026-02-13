@@ -1,5 +1,9 @@
 ---
-import ContactMeans from "../ui/ContactMeans.astro";
+import { phoneNumber } from "../../data/contact";
+import { github } from "../../data/contact";
+import { linkedin } from "../../data/contact";
+import { email } from "../../data/contact";
+import { profile } from "../../data/cv";
 import Section from "../ui/Section.astro";
 ---
 
@@ -14,33 +18,43 @@ import Section from "../ui/Section.astro";
   </p>
 
   <div class="flex justify-center">
-    <ContactMeans style="flex flex-wrap items-center justify-center gap-2" />
+    <ul class="flex flex-wrap items-center justify-center gap-2">
+      <li class="badge">
+        {profile.location}
+      </li>
+      <li class="badge">
+        {email.label}
+      </li>
+      <li class="badge">
+        {phoneNumber.label}
+      </li>
+    </ul>
   </div>
 
   <div class="justify-self-center flex flex-wrap items-center justify-center gap-4 pt-4 w-fit">
     <a
-      href="mailto:Bryan_Flores7@outlook.com"
+      href={email.href}
       class="flex-1 btn-primary"
     >
-      Enviar email
+      Enviar correo
     </a>
 
     <a
-      href="https://www.linkedin.com/in/bryanflores-dev"
+      href={linkedin.href}
       target="_blank"
       rel="noopener noreferrer"
       class="flex-1 btn-secondary"
     >
-      LinkedIn
+      {linkedin.label}
     </a>
 
     <a
-      href="https://github.com/Debraye7"
+      href={github.href}
       target="_blank"
       rel="noopener noreferrer"
       class="flex-1 btn-secondary"
     >
-      GitHub
+      {github.label}
     </a>
   </div>
 </Section>

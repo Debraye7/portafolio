@@ -1,6 +1,7 @@
 ---
 import Section from "../ui/Section.astro";
 import ExperienceTimeline from "../ui/ExperienceTimeline.astro";
+import { experiences } from "../../data/experience";
 ---
 
 <Section id="experience">
@@ -14,5 +15,5 @@ import ExperienceTimeline from "../ui/ExperienceTimeline.astro";
     </a>
   </div>
 
-  <ExperienceTimeline />
+  <ExperienceTimeline items={experiences.slice(0, 3)} />
 </Section>
