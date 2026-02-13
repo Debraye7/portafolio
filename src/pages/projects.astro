@@ -39,7 +39,7 @@ const filteredProjects =
 
     <div class="flex flex-wrap gap-2 mb-10">
       {Object.values(PROJECT_TYPES).map(t => (
-        <a
+        <a 
           href={`/projects?type=${t.value}`}
           class={`badge badge-filter ${activeType === t.value ? "badge-filter-active" : ""}`}
         >

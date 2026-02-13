@@ -35,7 +35,7 @@ const { img, title, description, problem, tech, liveUrl, repoUrl, type } = Astro
   </ul>
 
   <div class="mt-auto flex flex-wrap gap-4 pt-2">
-    {liveUrl && <a href={liveUrl} class="link">Ver proyecto</a>}
-    {repoUrl && <a href={repoUrl} class="link-muted">Código</a>}
+    {liveUrl && <a href={liveUrl} target="_blank" class="link">Ver proyecto</a>}
+    {repoUrl && <a href={repoUrl} target="_blank" class="link-muted">Código</a>}
   </div>
 </div>
